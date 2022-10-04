@@ -1,0 +1,63 @@
+{% extends 'news/default.html' %}
+
+{% load custom_filters %}
+{% load custom_tags %}
+
+{% block title %}
+Все новости
+{% endblock title %}
+
+
+{% block content %}
+<h5>Всего новостей - {{ news|length }}</h5>
+
+<h1>Последние новости</h1>
+   <form action="" method="get">
+       {{ filterset.form }}
+       <input type="submit" class="mt-6 btn btn-outline-primary" value="Найти" />
+   </form>
+<hr>
+   {% if news %}
+       <table width="100%">
+           <tr>
+               <th>Заголовок</th>
+               <th>Дата публикации</th>
+               <th>Категория</th>
+               <th>Содержание</th>
+               <th>Рейтинг</th>
+           </tr>
+           {% for post in news %}
+           <tr>
+               <td>{{ post.title|censor|truncatewords:3 }}</td>
+               <td>{{ post.dateCreation|date:'d M Y' }}</td>
+               <td>{% for cat in post.postCategory.all %}
+                    <a href="{% url 'subscribe' cat.pk %}">{{ cat }}</a>
+                   {% endfor %} </td>
+               <td>{{ post.text|censor|truncatechars:20 }}</td>
+               <td>{{ post.rating }}</td>
+           </tr>
+           {% endfor %}
+       </table>
+   {% else %}
+       <h2>А новостей на сегодня больше нет!</h2>
+   {% endif %}<br><br>
+
+   {% if page_obj.has_previous %}
+       <a href="?{% url_replace page=1 %}">1</a>
+       {% if page_obj.previous_page_number != 1 %}
+           ...
+           <a href="?{% url_replace page=page_obj.previous_page_number %}">{{ page_obj.previous_page_number }}</a>
+       {% endif %}
+   {% endif %}
+
+   {{ page_obj.number }}
+
+   {% if page_obj.has_next %}
+       <a href="?{% url_replace page=page_obj.next_page_number %}">{{ page_obj.next_page_number }}</a>
+       {% if paginator.num_pages != page_obj.next_page_number %}
+           ...
+           <a href="?{% url_replace page=page_obj.paginator.num_pages %}">{{ page_obj.paginator.num_pages }}</a>
+       {% endif %}
+   {% endif %}
+
+{% endblock content %}

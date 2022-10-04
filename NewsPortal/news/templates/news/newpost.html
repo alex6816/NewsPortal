@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mailing list</title>
+</head>
+<body>
+    <h2>Здравствуйте {{ subscriber_user }}! Вышла новая публикация в Вашей любимой категории {{ category_name }}! </h2>
+    <p><b>Название:</b> {{ title }} <br> <b>Краткая информация:</b> {{ posts|truncatechars:50 }}</p>
+    <p>Чтобы читать полностью, перейдите по ссылке:  <a href="http://127.0.0.1:8000/news/{{pk_id}}" class="btn btn-outline-success">Публикация</a></p>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% load account %} <!-- Загружаем тег который позволит получить нам ссылку на подтверждение -->
+    <h1>Благодарим за регистрацию {{ user.username }}!</h1>
+    <p>Чтобы активировать свой аккаунт и получить доступ ко всем возможностям платформы, пожалуйста, подтвердите email.</p>
+    <p>Для этого нажмите на кнопку ниже</p><br>
+    ><button type="button" class="btn btn-outline-primary"> <a href="{{ activate_url }}">Подтвердить</a </button>
+     <!-- Вставляем ссылку на активацию -->
+</body>
+</html>

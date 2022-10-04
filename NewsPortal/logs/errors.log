@@ -1,0 +1,6 @@
+2022-09-28 11:37:37,879 - ERROR - E:\Python\Projects\project_news\venv\lib\site-packages\django\core\servers\basehttp.py - None - "POST /news/create/ HTTP/1.1" 500 167595
+2022-09-28 11:39:48,915 - ERROR - E:\Python\Projects\project_news\venv\lib\site-packages\django\core\servers\basehttp.py - None - "POST /news/22/update/ HTTP/1.1" 500 167797
+2022-09-28 11:40:03,443 - ERROR - E:\Python\Projects\project_news\venv\lib\site-packages\django\core\servers\basehttp.py - None - "POST /news/22/update/ HTTP/1.1" 500 167851
+2022-09-28 11:48:27,130 - ERROR - E:\Python\Projects\project_news\venv\lib\site-packages\django\core\servers\basehttp.py - None - "POST /news/22/update/ HTTP/1.1" 500 167807
+2022-09-28 18:21:12,155 - ERROR - E:\Python\Projects\project_news\venv\lib\site-packages\django\core\servers\basehttp.py - None - "POST /news/22/update/ HTTP/1.1" 500 167799
+2022-09-29 11:45:59,630 - ERROR - E:\Python\Projects\project_news\venv\lib\site-packages\django\core\servers\basehttp.py - None - "POST /news/create/ HTTP/1.1" 500 163277
